@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parent Camera Snapshot</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background: #f0f0f0; }
+    img { max-width: 100%; height: auto; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h2>Latest Snapshot</h2>
+  <img id="snapshot" src="snapshot.jpg" alt="Tapo Snapshot">
+  <p>Updated every 15 minutes</p>
+
+  <script>
+    setInterval(() => {
+      const img = document.getElementById('snapshot');
+      img.src = 'snapshot.jpg?t=' + new Date().getTime(); // prevents caching
+    }, 900000); // 900000 ms = 15 minutes
+  </script>
+</body>
+</html>
